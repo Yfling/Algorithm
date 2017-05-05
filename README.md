@@ -1,4 +1,4 @@
 # Algorithm
-一些平时练习过的算法题目和编程题~
+Some of the topics about Algorithm  ^_^ ~
 
-要学会记录呀 ^_^
+
