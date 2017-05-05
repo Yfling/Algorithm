@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title></title>
+</head>
+
+<body>
+</body>
+<script>
+/**
+ * @param {number[][]} nums
+ * @param {number} r
+ * @param {number} c
+ * @return {number[][]}
+ */
+// 不能AC
+var matrixReshape = function(nums, r, c) {
+    var m = nums.length,
+        n = nums[0].length;
+
+    if (r * c != m * n) return nums;
+
+    // var[][] reshaped = new var[r][c];
+    var res =  new Array(r);   //表格有10行
+    for(var i = 0; i < res.length; i++){
+        res[i] = new Array(c);    //每行有10列
+    }
+
+
+    for (var i = 0; i < r * c; i++)
+        res[i / c][i % c] = nums[i / n][i % n];
+
+    return res;
+};
+
+var nums = [[1,2],[3,4]];
+console.log(matrixReshape(nums, 1, 4));
+</script>
+
+</html>

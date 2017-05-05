@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} inorder
+ * @param {number[]} pos
+ * @return {TreeNode}
+ */
+// 题目：根据二叉树的中序遍历和后序遍历恢复二叉树。
+var buildTree = function(vin, pos) {
+    var len = pos.length;
+    if (!pos || len === 0) return;
+
+    var treeNode = {
+        val: pos[len - 1]
+    }
+
+    for (var i = 0; i < len; i++) {
+        if (vin[i] === pos[len - 1]) {
+            treeNode.left = buildTree(vin.slice(0, i), pos.slice(0, i));
+            treeNode.right = buildTree(vin.slice(i+1), pos.slice(i, len - 1));
+        }
+    }
+    return treeNode;
+};
+var vin = [4,7,2,1,5,3,8,6];
+var pos = [7,4,2,5,8,6,3,1];
+console.log(buildTree(vin,pos));
+console.log(pos[pos.length - 1]);
+</script>
+</html>
