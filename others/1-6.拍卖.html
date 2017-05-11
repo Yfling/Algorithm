@@ -14,8 +14,9 @@ function print(x) {
 var line1 = "5 4";
 var line2 = "2 8 10 7";
 var data1 = line1.toString().split(' ');
-var n = parseInt(data1[0]);
-var m = parseInt(data1[1]);
+var n = parseInt(data1[0]);  // 5
+var m = parseInt(data1[1]);  // 4
+var min = Math.min(n,m);
 
 var data2 = line2.split(' ');
 for (var i = 0; i < m; i++) {
@@ -29,15 +30,15 @@ var index = 0;
 
 var res1 = [];
 var res2 = [];
-for (var i = 0; i < m; i++) {
-    for (var j = 0; j < m; j++) {
+
+for (var i = 0; i < min; i++) {
+    for (var j = 0; j < min; j++) {
         if (count < 1) break;
         if (data2[j] >= data2[i]) {
             count--;
             n++;
         }
     }
-    // profit = (profit > n * data2[i]) ? profit : n * data2[i];
     if (profit < n * data2[i]) {
         profit = n * data2[i];
         index = i;
